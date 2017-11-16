@@ -1,0 +1,41 @@
+
+
+.grid {
+	@include clearfix;
+	height: 100%;
+	
+	ul li {
+		list-style: none;
+	}
+	
+	.item {
+		float: left;
+		@include imagegrid(2, 3%);
+		
+		@include break(500px) {
+			@include imagegrid(3, 3%);
+		}
+		
+		@include break(900px) {
+			@include imagegrid(4, 5%);
+		}	
+		
+		@include break(1020px) {
+			@include imagegrid(6, 3%);
+		}
+		
+		@include break(1250px) {
+			@include imagegrid(6, 1%);
+		}
+		
+		//1630px
+	}
+	
+	img {
+		display: block;
+		border: 2px solid #000;
+		border-radius: $roundness; //nth($roundness, 1, 2); //10px
+		width: 800px;
+		max-width: 100%;
+	}
+}
