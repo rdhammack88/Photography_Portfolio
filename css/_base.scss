@@ -1,6 +1,8 @@
 
 html {
 	font-size: 62.5%;
+	max-width: 100%;
+	overflow-x: hidden;
 }
 
 body {
@@ -12,6 +14,7 @@ body {
 	font-family: $font-main;
 	color: $darkblue;
 	background-color: #fff;
+	overflow-x: hidden;
 }
 
 .container {
@@ -35,33 +38,6 @@ h1 {
 	}
 }
 
-h5 {
-	margin-bottom: 22px;
-	text-decoration: underline;
-}
-
-p {
-	font-size: 1rem;
-	line-height: 1.5em;
-	margin-top: 2.5%;
-	
-	//@for $i from 1 through length($font-list) {
-	@each $font in $font-list {
-		//@each .item>p in div {
-			$i: index($font-list, $font);
-			//$font: $font-list[$i];
-		div.item:nth-of-type(#{$i}) &  { //#{$i}
-				font-family: $font;
-				//$i: ($i + 1);
-			}
-		//}
-	}
-}
-
-.hidden {
-	display: none;
-}
-
 hr {
 	width: 80%;
 	margin-bottom: 0;
@@ -69,18 +45,36 @@ hr {
 
 div.buttons {
 	text-align: center;
-	width: 60%;
+	width: 100%;
 	margin: 0 auto;
 }
 
 input[type="button"] {
 	padding: 5px;
 	margin-top: -1px;
-	font-size: .9em;
+	font-size: .7em;
 	border-radius: 0 0 10px 10px;
+	
+	@include break(768px) {
+		font-size: 1em;
+	}
 }
 
 footer {
-	text-align: center;
+	//height: 110px;
 	padding: 30px 0;
+	box-sizing: content-box;
+
+	> p {
+		font-size: .6em;
+		width: 50%;
+		text-align: center;
+		padding: 30px 0;
+		margin: auto;
+		vertical-align: baseline;
+		box-sizing: content-box;
+	}
+	
 }
+
+
